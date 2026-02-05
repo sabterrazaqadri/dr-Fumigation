@@ -60,8 +60,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-blue-900 mb-1">Phone Number</h4>
-                  <a href="tel:03032237137" className="text-gray-700 hover:text-orange-500 transition text-lg">
-                    0303-2237137
+                  <a href="tel:03150118718" className="text-gray-700 hover:text-orange-500 transition text-lg">
+                    0315-0118718
                   </a>
                   <p className="text-sm text-gray-500 mt-1">Click to call directly</p>
                 </div>
@@ -92,14 +92,14 @@ export default function Contact() {
               <h4 className="text-white font-bold text-lg mb-4">Quick Contact</h4>
               <div className="space-y-3">
                 <a
-                  href="tel:03032237137"
+                  href="tel:03150118718"
                   className="flex items-center justify-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition font-semibold"
                 >
                   <Phone className="w-5 h-5" />
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/923032237137"
+                  href="https://wa.me/923150118718"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition font-semibold"

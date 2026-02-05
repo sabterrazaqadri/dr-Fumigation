@@ -77,13 +77,13 @@ export default function Services() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:03032237137"
+              href="tel:03150118718"
               className="bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition inline-block"
             >
-              Call: 0303-2237137
+              Call: 0315-0118718
             </a>
             <a
-              href="https://wa.me/923032237137"
+              href="https://wa.me/923150118718"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition inline-block"

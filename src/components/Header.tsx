@@ -43,7 +43,7 @@ export default function Header() {
               Admin
             </a>
             <a
-              href="tel:03032237137"
+              href="tel:03150118718"
               className="flex items-center gap-2 bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition"
             >
               <Phone className="w-4 h-4" />
@@ -77,7 +77,7 @@ export default function Header() {
               Contact
             </button>
             <a
-              href="tel:03032237137"
+              href="tel:03150118718"
               className="flex items-center gap-2 bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition w-fit"
             >
               <Phone className="w-4 h-4" />

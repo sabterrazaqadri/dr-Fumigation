@@ -33,7 +33,7 @@ export default function About() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="tel:03032237137"
+                href="tel:03150118718"
                 className="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition"
               >
                 Contact Us Today
