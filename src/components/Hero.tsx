@@ -65,7 +65,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl transform rotate-3"></div>
               <div className="relative bg-white p-8 rounded-3xl shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/5217883/pexels-photo-5217883.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/o.png"
                   alt="Professional Pest Control Service"
                   className="rounded-2xl w-full h-auto object-cover"
                 />

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Phone, MapPin, Mail, Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,11 +16,18 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([formData]);
+      // Send form data to backend API that connects to NeonDB
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
 
       setSubmitStatus('success');
       setFormData({ name: '', phone: '', message: '' });

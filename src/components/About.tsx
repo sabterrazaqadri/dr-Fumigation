@@ -15,7 +15,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img
-              src="https://images.pexels.com/photos/6196959/pexels-photo-6196959.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/a.jpg"
               alt="DR Fumigation Team"
               className="rounded-2xl shadow-xl w-full h-auto object-cover"
             />
