@@ -16,8 +16,10 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
+      // Use environment variable for API base URL, fallback to relative path
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
       // Send form data to backend API that connects to NeonDB
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

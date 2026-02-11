@@ -65,3 +65,22 @@ PORT=5000
 - Access is secured with a login form that requires the admin password
 - The default password is set in the environment variables
 - Submissions can be viewed, refreshed, and deleted from the admin panel
+
+## Backend Deployment
+
+To make the admin panel and contact form work in production:
+
+1. **Deploy the backend server separately** (recommended):
+   - Deploy the `server` directory to a platform like Render, Railway, or Heroku
+   - Set the `VITE_API_BASE_URL` environment variable in your frontend deployment to point to your backend URL
+   - Example: `VITE_API_BASE_URL=https://your-backend-deployment-url.onrender.com`
+
+2. **Environment Variables for Production**:
+   - `VITE_API_BASE_URL`: URL of your deployed backend server (e.g., `https://your-backend.herokuapp.com`)
+   - `NEON_DB_URL`: Your NeonDB connection string
+   - `ADMIN_PASSWORD`: Admin password for the admin panel
+   - `JWT_SECRET`: Secret key for JWT token generation
+
+3. **NeonDB Setup**:
+   - Create a NeonDB account and project
+   - Run the migration in `neon_migrations/01_create_contact_submissions.sql` to create the required table

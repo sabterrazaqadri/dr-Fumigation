@@ -30,16 +30,19 @@ export default function Admin() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
+    // Use environment variable for API base URL, fallback to relative path
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+    
     try {
-      const response = await fetch('/api/admin/login', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ password }),
       });
-
+      
       // Handle the case where response is empty
       let data = {};
       if (response.headers.get('content-type')?.includes('application/json')) {
@@ -53,7 +56,7 @@ export default function Admin() {
           data = { error: 'Invalid response from server' };
         }
       }
-
+      
       if (response.ok && data.token) {
         localStorage.setItem('adminToken', data.token);
         setIsLoggedIn(true);
@@ -72,12 +75,14 @@ export default function Admin() {
   const fetchSubmissions = async (token: string) => {
     try {
       setLoading(true);
-      const response = await fetch('/api/contact', {
+      // Use environment variable for API base URL, fallback to relative path
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
-
+      
       if (!response.ok) {
         if (response.status === 401) {
           // Token expired or invalid, log out user
@@ -89,7 +94,7 @@ export default function Admin() {
         }
         return;
       }
-
+      
       // Handle the case where response is empty
       let data = [];
       if (response.headers.get('content-type')?.includes('application/json')) {
@@ -103,7 +108,7 @@ export default function Admin() {
           data = [];
         }
       }
-
+      
       setSubmissions(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
@@ -124,13 +129,15 @@ export default function Admin() {
 
     if (window.confirm('Are you sure you want to delete this submission?')) {
       try {
-        const response = await fetch(`/api/contact/${id}`, {
+        // Use environment variable for API base URL, fallback to relative path
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+        const response = await fetch(`${API_BASE_URL}/api/contact/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,
           },
         });
-
+        
         if (!response.ok) {
           if (response.status === 401) {
             // Token expired or invalid, log out user
@@ -139,7 +146,7 @@ export default function Admin() {
             alert('Session expired. Please log in again.');
             return;
           }
-
+          
           // Handle error response
           let errorData = { error: 'Failed to delete submission' };
           if (response.headers.get('content-type')?.includes('application/json')) {
@@ -152,10 +159,10 @@ export default function Admin() {
               errorData = { error: 'Failed to delete submission' };
             }
           }
-
+          
           throw new Error(errorData.error || 'Failed to delete submission');
         }
-
+        
         // Remove the deleted submission from the local state
         setSubmissions(submissions.filter(submission => submission.id !== id));
       } catch (err) {
