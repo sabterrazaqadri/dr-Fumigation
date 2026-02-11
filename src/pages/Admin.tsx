@@ -32,7 +32,8 @@ export default function Admin() {
     e.preventDefault();
     
     // Use environment variable for API base URL, fallback to relative path
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+    // Remove trailing slash if present to avoid double slashes
+    const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
     
     try {
       const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
@@ -76,7 +77,8 @@ export default function Admin() {
     try {
       setLoading(true);
       // Use environment variable for API base URL, fallback to relative path
-      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+      // Remove trailing slash if present to avoid double slashes
+      const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
       const response = await fetch(`${API_BASE_URL}/api/contact`, {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -130,7 +132,8 @@ export default function Admin() {
     if (window.confirm('Are you sure you want to delete this submission?')) {
       try {
         // Use environment variable for API base URL, fallback to relative path
-        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+        // Remove trailing slash if present to avoid double slashes
+        const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
         const response = await fetch(`${API_BASE_URL}/api/contact/${id}`, {
           method: 'DELETE',
           headers: {
