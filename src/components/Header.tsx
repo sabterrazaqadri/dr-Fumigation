@@ -37,12 +37,6 @@ export default function Header() {
               Contact
             </button>
             <a
-              href="/admin"
-              className="text-xs text-gray-500 hover:text-blue-600 transition"
-            >
-              Admin
-            </a>
-            <a
               href="tel:03150118718"
               className="flex items-center gap-2 bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition"
             >
